@@ -101,3 +101,26 @@ class DogAPI:
         )
 
         return response
+
+    def search_breeds(self, query_str: str) -> list:
+        """Function to search dog breeds
+
+        Args:
+            query_str (str): Dog breed we are looking for
+
+        Returns:
+            list: JSON formatted response
+        """
+
+        if not isinstance(query_str, str):
+            raise ValueError("ERROR - Parameter 'query_str' should be of type string")
+
+        search_breeds_url = f"{self.base_url}/breeds/search"
+
+        response = self.call_api(
+            request_type=RequestType.GET.value,
+            endpoint=search_breeds_url,
+            payload={"q": query_str},
+        )
+
+        return response
