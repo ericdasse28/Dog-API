@@ -51,7 +51,7 @@ class DogAPI:
                 response = requests.get(
                     endpoint,
                     timeout=30,
-                    payload=payload,
+                    params=payload,
                 )
             elif request_type == "POST":
                 response = requests.post(
