@@ -124,3 +124,33 @@ class DogAPI:
         )
 
         return response
+
+    def create_vote(self, payload: dict) -> dict:
+        """Function to vote on dog image
+
+        Args:
+            payload (dict): API request parameters
+
+        Returns:
+            dict: JSON formatted response
+        """
+
+        if not self._is_payload_valid(payload):
+            raise ValueError("ERROR - Parameter 'payload' should be of type dict")
+
+        create_vote_url = f"{self.base_url}/votes"
+
+        response = self.call_api(
+            request_type=RequestType.POST.value,
+            endpoint=create_vote_url,
+            payload=payload,
+        )
+
+        return response
+
+    def _is_payload_valid(self, payload):
+        return (
+            not isinstance(payload, dict)
+            or "image_id" not in payload
+            or "value" not in payload
+        )
