@@ -78,3 +78,26 @@ class DogAPI:
             logging.error(errt)
         except requests.exceptions.RequestException as err:
             logging.error(err)
+
+    def list_breeds(self, query_dict: dict) -> list:
+        """Function to list dog breeds
+
+        Args:
+            query_dict (dict): Query string parameters
+
+        Returns:
+            list: JSON formatted list of all dog breeds on the API
+        """
+
+        if not isinstance(query_dict, dict):
+            raise ValueError("ERROR - Parameter 'query_dict' should be of type dict")
+
+        breeds_url = f"{self.base_url}/breeds"
+
+        response = self.call_api(
+            request_type=RequestType.GET.value,
+            endpoint=breeds_url,
+            payload=query_dict,
+        )
+
+        return response
