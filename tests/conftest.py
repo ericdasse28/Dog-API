@@ -1,4 +1,5 @@
 import pytest
+
 from dog_api.core import DogAPI
 
 
