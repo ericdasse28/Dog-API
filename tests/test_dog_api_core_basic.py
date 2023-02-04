@@ -89,7 +89,7 @@ def test_create_vote(dog_api):
 
 def test_dog_api_core_key_error():
     """
-    Unit test to test auth on POST request
+    Unit test to test authentication on POST request
     """
 
     dog_api_temp = DogAPI()
