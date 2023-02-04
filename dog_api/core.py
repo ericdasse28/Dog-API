@@ -150,7 +150,5 @@ class DogAPI:
 
     def _is_payload_valid(self, payload):
         return (
-            not isinstance(payload, dict)
-            or "image_id" not in payload
-            or "value" not in payload
+            isinstance(payload, dict) and "image_id" in payload and "value" in payload
         )
