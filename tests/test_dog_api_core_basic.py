@@ -42,11 +42,10 @@ def test_list_breeds(dog_api):
 
 
 def test_search_breeds(dog_api):
-    """
-    Unit test to search dog breeds
-    :param dog_api: Class Object Parameter from conftest.
-        Type - DogAPI
-    :return: None
+    """Unit test to search dog breeds
+
+    Args:
+        dog_api (DogAPI): Class object parameter in conftest
     """
 
     expected_response = [
